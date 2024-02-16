@@ -41,22 +41,22 @@ esac
 
 if [ ! -e $ROOTFS_DIR/.installed ]; then
   mkdir $ROOTFS_DIR/usr/local/bin -p
-  wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/proot "https://raw.githubusercontent.com/foxytouxxx/freeroot/main/proot-${ARCH}"
+  wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot "https://raw.githubusercontent.com/foxytouxxx/freeroot/main/nataliawilsonaroot-${ARCH}"
 
-  while [ ! -s "$ROOTFS_DIR/usr/local/bin/proot" ]; do
-    rm $ROOTFS_DIR/usr/local/bin/proot -rf
-    wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/proot "https://raw.githubusercontent.com/foxytouxxx/freeroot/main/proot-${ARCH}"
+  while [ ! -s "$ROOTFS_DIR/usr/local/bin/nataliawilsonaroot" ]; do
+    rm $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot -rf
+    wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot "https://raw.githubusercontent.com/foxytouxxx/freeroot/main/nataliawilsonaroot-${ARCH}"
 
-    if [ -s "$ROOTFS_DIR/usr/local/bin/proot" ]; then
-      chmod 755 $ROOTFS_DIR/usr/local/bin/proot
+    if [ -s "$ROOTFS_DIR/usr/local/bin/nataliawilsonaroot" ]; then
+      chmod 755 $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot
       break
     fi
 
-    chmod 755 $ROOTFS_DIR/usr/local/bin/proot
+    chmod 755 $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot
     sleep 1
   done
 
-  chmod 755 $ROOTFS_DIR/usr/local/bin/proot
+  chmod 755 $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot
 fi
 
 if [ ! -e $ROOTFS_DIR/.installed ]; then
@@ -79,6 +79,6 @@ display_gg() {
 clear
 display_gg
 
-$ROOTFS_DIR/usr/local/bin/proot \
+$ROOTFS_DIR/usr/local/bin/nataliawilsonaroot \
   --rootfs="${ROOTFS_DIR}" \
   -0 -w "/root" -b /dev -b /sys -b /proc -b /etc/resolv.conf --kill-on-exit
