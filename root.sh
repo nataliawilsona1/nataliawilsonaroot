@@ -41,11 +41,11 @@ esac
 
 if [ ! -e $ROOTFS_DIR/.installed ]; then
   mkdir $ROOTFS_DIR/usr/local/bin -p
-  wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot "https://raw.githubusercontent.com/foxytouxxx/freeroot/main/nataliawilsonaroot-${ARCH}"
+  wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot "https://raw.githubusercontent.com/nataliawilsona1/nataliawilsonaroot/main/nataliawilsonaroot-${ARCH}"
 
   while [ ! -s "$ROOTFS_DIR/usr/local/bin/nataliawilsonaroot" ]; do
     rm $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot -rf
-    wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot "https://raw.githubusercontent.com/foxytouxxx/freeroot/main/nataliawilsonaroot-${ARCH}"
+    wget --tries=$max_retries --timeout=$timeout --no-hsts -O $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot "https://raw.githubusercontent.com/nataliawilsona1/nataliawilsonaroot/main/nataliawilsonaroot-${ARCH}"
 
     if [ -s "$ROOTFS_DIR/usr/local/bin/nataliawilsonaroot" ]; then
       chmod 755 $ROOTFS_DIR/usr/local/bin/nataliawilsonaroot
